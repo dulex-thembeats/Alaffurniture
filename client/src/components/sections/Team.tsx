@@ -110,7 +110,7 @@ export default function Team() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <img src="https://via.placeholder.com/120" alt="Muhammad Abdulkadir" />
+          <img src="/images/Muhammad Abdulkadir.jpg" alt="Muhammad Abdulkadir" />
           <h4>Muhammad Abdulkadir</h4>
           <p>Executive Assistant / HR</p>
         </motion.div>
