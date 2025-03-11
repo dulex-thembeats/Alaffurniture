@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function Hero() {
   return (
@@ -16,7 +21,7 @@ export default function Hero() {
             "url('https://images.unsplash.com/photo-1489514354504-1653aa90e34e')",
         }}
       />
-      
+
       <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,16 +38,43 @@ export default function Hero() {
             Expert craftsmen delivering bespoke furniture, construction, and
             finishing services with unparalleled quality and attention to detail.
           </p>
-          <Button
-            size="lg"
-            className="group"
-            asChild
-          >
-            <a href="#contact">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </Button>
+          <div className="flex gap-4 justify-center">
+            <Button
+              size="lg"
+              className="group"
+              asChild
+            >
+              <a href="#contact">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group"
+                >
+                  <Play className="mr-2 h-4 w-4" />
+                  Watch Video
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-4xl">
+                <div className="aspect-video">
+                  <video
+                    className="w-full h-full"
+                    controls
+                    src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
+                    poster="https://images.unsplash.com/photo-1489514354504-1653aa90e34e"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
         </motion.div>
       </div>
     </section>
