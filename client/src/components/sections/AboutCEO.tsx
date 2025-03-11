@@ -27,7 +27,7 @@ export default function AboutCEO() {
             <Card className="overflow-hidden">
               <CardContent className="p-6">
                 <img
-                  src="/images/khadija.jpg"
+                  src="/images/Khadija%20Kabir.jpg"
                   alt="Khadija Kabir"
                   className="w-full rounded-lg"
                 />
