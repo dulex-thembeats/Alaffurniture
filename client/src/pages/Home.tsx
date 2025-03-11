@@ -1,7 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
-import Portfolio from "@/components/sections/Portfolio";
+
 import Team from "@/components/sections/Team";
 import Contact from "@/components/sections/Contact";
 import Gallery from "@/components/sections/Gallery";
@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <Services />
       <AboutCEO />
-      <Portfolio />
+      
       <Gallery />
       <Team />
       <Contact />
