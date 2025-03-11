@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/">
-              <img src="/images/logo.png" alt="Elfijr" className="h-12 w-auto brightness-0 invert" />
+              <img src="/images/logo.png" alt="Elfijr" className="h-20 w-auto brightness-0 invert" />
             </Link>
             <p className="mt-4 text-primary-foreground/80">
               Expert craftsmen delivering bespoke furniture and construction services
