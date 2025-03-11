@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Section</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="team.css">
+</head>
+<body>
+
+<section class="team-section">
+  <h2 class="section-title">Board Of Directors</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Hajiya Mama">
+      <h4>Hajiya Mama</h4>
+      <p>Director</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Ahmad Muhammad Kabir">
+      <h4>Ahmad Muhammad Kabir</h4>
+      <p>Director</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Kabir Muhammad Kabir">
+      <h4>Kabir Muhammad Kabir</h4>
+      <p>Director</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Muhammad Abdallah Dayyan">
+      <h4>Muhammad Abdallah Dayyan</h4>
+      <p>Director, Services Operations</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Management Staffs</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Hafsat Kabir">
+      <h4>Hafsat Kabir</h4>
+      <p>Head of Dispatch</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Hassana Kabir">
+      <h4>Hassana Kabir</h4>
+      <p>Finance Officer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Abubakar Aliyu Gambo">
+      <h4>Abubakar Aliyu Gambo</h4>
+      <p>Marketing / IT</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Muhammad Abdulkadir">
+      <h4>Muhammad Abdulkadir</h4>
+      <p>Executive Assistant / HR</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Ahmad Usman">
+      <h4>Ahmad Usman</h4>
+      <p>Accountant / Special Assistant</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Ilyasu Muhammad">
+      <h4>Ilyasu Muhammad</h4>
+      <p>Project Manager / Dispatch Officer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Usman Hassan">
+      <h4>Usman Hassan</h4>
+      <p>Store Keeper / Procurement</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Arch. Suleiman Abba">
+      <h4>Arch. Suleiman Abba</h4>
+      <p>Designer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Muhammad Mu'awiyya">
+      <h4>Muhammad Mu'awiyya</h4>
+      <p>Project Manager / Production Manager</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/120" alt="Mrs. Fadila Sambo">
+      <h4>Mrs. Fadila Sambo</h4>
+      <p>Kenya Operations</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
