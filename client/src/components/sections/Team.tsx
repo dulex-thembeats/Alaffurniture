@@ -27,15 +27,15 @@ export default function Team() {
 
   return (
     <section id="team" className="team-section">
-      <motion.h2 
-        className="heading"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="text-center mb-12"
       >
-        Board Of Directors
-      </motion.h2>
+        <h2 className="text-3xl font-bold mb-4">Board Of Directors</h2>
+      </motion.div>
       <div className="team-grid">
         <motion.div 
           className="team-member"
@@ -107,15 +107,15 @@ export default function Team() {
         </motion.div>
       </div>
 
-      <motion.h2 
-        className="heading"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="text-center mb-12"
       >
-        Management Staffs
-      </motion.h2>
+        <h2 className="text-3xl font-bold mb-4">Management Staffs</h2>
+      </motion.div>
       <div className="team-grid">
         <motion.div 
           className="team-member"
