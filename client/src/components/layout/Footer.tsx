@@ -68,7 +68,7 @@ export default function Footer() {
                   <item.icon className="h-5 w-5 mt-0.5 flex-shrink-0" />
                   <a
                     href={item.href}
-                    className="text-primary-foreground/80 hover:text-primary transition-colors"
+                    className="hover:text-primary-foreground/80 transition-colors"
                   >
                     {item.text}
                   </a>
@@ -87,7 +87,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-foreground/80 hover:text-primary transition-colors"
+                  className="bg-primary-foreground/10 hover:bg-primary-foreground/20 h-10 w-10 rounded-full flex items-center justify-center transition-colors hover:text-primary-foreground/80"
                 >
                   <social.icon className="h-6 w-6" />
                 </a>
