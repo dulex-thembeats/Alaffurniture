@@ -88,7 +88,7 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Our Gallery</h2>
+          <h2 className="text-3xl font-bold mb-4">Gallery</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of completed projects and custom creations
           </p>
