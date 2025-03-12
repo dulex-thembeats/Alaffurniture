@@ -20,15 +20,7 @@
   text-align: center;
 }
 
-.section-title {
-  background-color: #1e1e6d;
-  color: white;
-  padding: 10px 20px;
-  display: inline-block;
-  font-size: 24px;
-  border-radius: 5px;
-  margin: 40px 0 30px;
-}
+/* Removed section-title class and using the global heading class instead */
 
 .team-grid {
   display: flex;
@@ -43,6 +35,13 @@
   padding: 15px;
   width: 180px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .team-member img {
