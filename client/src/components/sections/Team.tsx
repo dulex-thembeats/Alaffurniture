@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
@@ -19,7 +18,7 @@ type TeamMember = {
 
 export default function Team() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  
+
   // Example bios - you can replace these with actual information
   const getMemberBio = (name: string) => {
     return `${name} is a valued member of our organization with extensive experience in their field. They have contributed significantly to our company's growth and success through their dedication and expertise.`;
@@ -36,7 +35,7 @@ export default function Team() {
       >
         <h2 className="text-3xl font-bold mb-4">Board Of Directors</h2>
       </motion.div>
-      <div className="team-grid">
+      <div className="team-grid mb-16">
         <motion.div 
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
