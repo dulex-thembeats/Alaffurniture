@@ -50,7 +50,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    className="text-[#004080] hover:text-primary transition-colors"
                   >
                     {link.name}
                   </a>
@@ -68,7 +68,7 @@ export default function Footer() {
                   <item.icon className="h-5 w-5 mt-0.5 flex-shrink-0" />
                   <a
                     href={item.href}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    className="text-primary-foreground/80 hover:text-primary transition-colors"
                   >
                     {item.text}
                   </a>
@@ -87,7 +87,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-primary-foreground/80 hover:text-primary transition-colors"
                 >
                   <social.icon className="h-6 w-6" />
                 </a>

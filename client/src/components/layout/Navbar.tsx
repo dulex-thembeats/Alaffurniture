@@ -31,7 +31,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-[#004080] hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 {item.name}
               </a>
@@ -63,7 +63,7 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-muted-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-[#004080] hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
