@@ -14,6 +14,10 @@
   nav a {
     @apply text-blue-800; /* Apply the specified color to menu items */
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #004080;
+  }
 }
 
 /* Team Section Styles */
