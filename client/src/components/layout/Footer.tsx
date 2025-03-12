@@ -44,13 +44,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-[#004080] hover:text-primary transition-colors"
+                    className="text-white hover:text-primary-foreground/80 transition-colors"
                   >
                     {link.name}
                   </a>
