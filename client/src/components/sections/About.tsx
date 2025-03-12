@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { RiFlag2Line, RiEyeLine, RiHeartLine } from "react-icons/ri";
 
 export default function About() {
   return (
@@ -28,7 +29,10 @@ export default function About() {
           >
             <Card>
               <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
+                <div className="flex flex-col items-center mb-4">
+                  <RiFlag2Line className="h-12 w-12 text-primary mb-2" />
+                  <h3 className="text-xl font-semibold">Our Mission</h3>
+                </div>
                 <p className="text-muted-foreground">
                   To deliver exceptional quality in every project while exceeding
                   client expectations through innovative solutions and superior
@@ -46,7 +50,10 @@ export default function About() {
           >
             <Card>
               <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-2">Our Vision</h3>
+                <div className="flex flex-col items-center mb-4">
+                  <RiEyeLine className="h-12 w-12 text-primary mb-2" />
+                  <h3 className="text-xl font-semibold">Our Vision</h3>
+                </div>
                 <p className="text-muted-foreground">
                   To be the leading provider of high-end construction and furniture
                   solutions, known for our commitment to excellence and innovation.
@@ -63,7 +70,10 @@ export default function About() {
           >
             <Card>
               <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-2">Our Values</h3>
+                <div className="flex flex-col items-center mb-4">
+                  <RiHeartLine className="h-12 w-12 text-primary mb-2" />
+                  <h3 className="text-xl font-semibold">Our Values</h3>
+                </div>
                 <p className="text-muted-foreground">
                   Quality, integrity, and customer satisfaction are at the heart of
                   everything we do, driving us to deliver excellence in every
