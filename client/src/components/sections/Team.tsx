@@ -1,7 +1,25 @@
 
 import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+
+// Define a type for team member data
+interface TeamMember {
+  name: string;
+  position: string;
+  image: string;
+  bio?: string;
+}
 
 export default function Team() {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  
   return (
     <section id="team" className="team-section">
       <motion.h2 
@@ -20,6 +38,12 @@ export default function Team() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
+          onClick={() => setSelectedMember({
+            name: "Hajiya Mama",
+            position: "Director",
+            image: "https://via.placeholder.com/120",
+            bio: "Hajiya Mama is a highly experienced leader with extensive knowledge in business management and operations."
+          })}
         >
           <img src="https://via.placeholder.com/120" alt="Hajiya Mama" />
           <h4>Hajiya Mama</h4>
@@ -181,6 +205,28 @@ export default function Team() {
           <p>Kenya Operations</p>
         </motion.div>
       </div>
+
+      {/* Profile Modal */}
+      <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
+        {selectedMember && (
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle className="text-xl text-center text-[#1e1e6d]">{selectedMember.name}</DialogTitle>
+              <DialogDescription className="text-center">{selectedMember.position}</DialogDescription>
+            </DialogHeader>
+            <div className="flex flex-col items-center mt-4">
+              <img 
+                src={selectedMember.image} 
+                alt={selectedMember.name} 
+                className="w-32 h-32 rounded-full border-4 border-[#1e1e6d] shadow-lg"
+              />
+              <div className="mt-6 text-center">
+                <p className="text-gray-700">{selectedMember.bio || "Professional team member with expertise in their field."}</p>
+              </div>
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
     </section>
   );
 }
