@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Store from "@/pages/Store";
-import Downloads from "@/pages/Downloads";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 // Removed unused imports - components are in sections folder
@@ -43,7 +43,7 @@ function Router() {
         <Route path="/team" component={TeamPage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/store" component={Store} />
-        <Route path="/downloads" component={Downloads} />
+
         <Route path="/news" component={News} />
         <Route component={NotFound} />
       </Switch>

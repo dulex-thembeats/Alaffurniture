@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Menu, X, ShoppingBag, Download } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -11,7 +11,6 @@ const navItems = [
   { name: "Gallery", href: "/gallery" },
   { name: "Team", href: "/team" },
   { name: "Contact", href: "/contact" },
-  { name: "Downloads", href: "/downloads", icon: Download },
   { name: "Store", href: "/store", icon: ShoppingBag, className: "ml-6" }
 ];
 
