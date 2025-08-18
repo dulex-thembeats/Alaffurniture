@@ -8,25 +8,25 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Interior Designer",
     text: "ALAF Furniture has consistently delivered exceptional quality and design. Their attention to detail and craftsmanship sets them apart in the luxury furniture market.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b566?w=120&h=120&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80"
   },
   {
     name: "Michael Chen",
     role: "Homeowner",
     text: "The customer service at ALAF is outstanding. They helped me create a sophisticated living space that perfectly reflects my style and needs.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80"
   },
   {
     name: "Emma Rodriguez",
     role: "Architect",
     text: "Working with ALAF has been exceptional. Their furniture pieces seamlessly blend functionality with stunning aesthetic appeal in every project.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80"
   },
   {
     name: "David Wilson",
     role: "Hotel Manager",
     text: "ALAF transformed our hotel lobby with their premium furniture collection. The quality and elegance have impressed all our guests.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80"
   }
 ];
 

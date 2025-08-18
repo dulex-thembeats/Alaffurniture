@@ -46,12 +46,12 @@ export default function Team() {
             setSelectedMember({
               name: "Sarah Johnson",
               role: "Director of Design",
-              image: "https://images.unsplash.com/photo-1494790108755-2616b612b566?w=150&h=150&fit=crop&crop=face",
+              image: "https://images.unsplash.com/photo-1494790108755-2616b612b566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80",
               bio: getMemberBio("Sarah Johnson"),
             })
           }
         >
-          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b566?w=150&h=150&fit=crop&crop=face" alt="Sarah Johnson" />
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80" alt="Sarah Johnson" />
           <h4>Sarah Johnson</h4>
           <p>Director of Design</p>
         </motion.div>
@@ -65,12 +65,12 @@ export default function Team() {
             setSelectedMember({
               name: "Michael Chen",
               role: "Operations Director",
-              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80",
               bio: getMemberBio("Michael Chen"),
             })
           }
         >
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Michael Chen" />
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80" alt="Michael Chen" />
           <h4>Michael Chen</h4>
           <p>Operations Director</p>
         </motion.div>
@@ -84,13 +84,13 @@ export default function Team() {
             setSelectedMember({
               name: "David Wilson",
               role: "Creative Director",
-              image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+              image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80",
               bio: getMemberBio("David Wilson"),
             })
           }
         >
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80"
             alt="David Wilson"
           />
           <h4>David Wilson</h4>
@@ -106,13 +106,13 @@ export default function Team() {
             setSelectedMember({
               name: "Emma Rodriguez",
               role: "Strategic Director",
-              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80",
               bio: getMemberBio("Emma Rodriguez"),
             })
           }
         >
           <img
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80"
             alt="Emma Rodriguez"
           />
           <h4>Emma Rodriguez</h4>
