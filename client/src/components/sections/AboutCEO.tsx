@@ -37,15 +37,15 @@ export default function AboutCEO() {
                   Khadija Kabir
                 </h3>
                 <p className="font-semibold text-foreground">CEO/PRESIDENT</p>
-                <p className="text-orange-600 font-bold text-sm uppercase mb-6">
-                  ELFIJR FURNITURE AND INTERIORS
+                <p className="text-primary font-bold text-sm uppercase mb-6">
+                  ALAF FURNITURE AND INTERIORS
                 </p>
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg">
+                <div className="bg-primary/10 border-l-4 border-primary p-4 rounded-lg">
                   <p className="mb-4">
                     <strong>BIO:</strong> Khadija Kabir, Bsc Microbiology, PGD
-                    Management is the visionary CEO behind Elfijr G & P Limited,
+                    Management is the visionary CEO behind ALAF Furniture,
                     who embarked on an extraordinary journey that gave birth to
-                    Elfijr Furniture and Interiors.
+                    luxury furniture and interior design excellence.
                   </p>
                   <p>
                     Enduring years of experience culminated in the success

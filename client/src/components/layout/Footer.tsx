@@ -11,11 +11,11 @@ const quickLinks = [
 ];
 
 const contactInfo = [
-  { icon: Mail, text: "info@elfijr.com", href: "mailto:info@elfijr.com" },
+  { icon: Mail, text: "info@alaf.com", href: "mailto:info@alaf.com" },
   { icon: Phone, text: "+234 123 456 7890", href: "tel:+2341234567890" },
   {
     icon: MapPin,
-    text: "123 Business District, Lagos, Nigeria",
+    text: "Luxury Furniture District, Lagos, Nigeria",
     href: "https://maps.google.com",
   },
 ];
@@ -34,11 +34,11 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/">
-              <img src="/images/logo.png" alt="Elfijr" className="h-20 w-auto brightness-0 invert" />
+              <img src="/images/alaf-logo.png" alt="ALAF Furniture" className="h-16 w-auto" />
             </Link>
             <p className="mt-4 text-primary-foreground/80">
-              Expert craftsmen delivering bespoke furniture and construction services
-              with unparalleled quality.
+              ALAF creates luxury furniture and interior design solutions that blend
+              modern sophistication with timeless elegance.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center text-primary-foreground/60">
-          <p>© {new Date().getFullYear()} Elfijr Contractors. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ALAF Furniture. All rights reserved.</p>
         </div>
       </div>
     </footer>

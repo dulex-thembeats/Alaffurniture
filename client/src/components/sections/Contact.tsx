@@ -63,9 +63,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <h2 className="text-3xl font-bold mb-4 text-primary">Contact ALAF</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get in touch with us for your next project
+            Ready to transform your space? Get in touch with us for luxury furniture and interior design solutions
           </p>
         </motion.div>
 

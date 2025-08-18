@@ -33,7 +33,7 @@ export default function Team() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-bold mb-4">Board Of Directors</h2>
+        <h2 className="text-3xl font-bold mb-4 text-primary">ALAF Leadership Team</h2>
       </motion.div>
       <div className="team-grid mb-16">
         <motion.div
