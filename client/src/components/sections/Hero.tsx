@@ -23,7 +23,7 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
+      id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-background to-background/50 z-10" />
