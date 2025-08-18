@@ -44,16 +44,16 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.1 }}
           onClick={() =>
             setSelectedMember({
-              name: "Hajiya Mama",
-              role: "Director",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Hajiya Mama"),
+              name: "Sarah Johnson",
+              role: "Director of Design",
+              image: "https://images.unsplash.com/photo-1494790108755-2616b612b566?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("Sarah Johnson"),
             })
           }
         >
-          <img src="/images/Team/Hajiya mama.png" alt="Hajiya Mama" />
-          <h4>Hajiya Mama</h4>
-          <p>Director</p>
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b566?w=150&h=150&fit=crop&crop=face" alt="Sarah Johnson" />
+          <h4>Sarah Johnson</h4>
+          <p>Director of Design</p>
         </motion.div>
         <motion.div
           className="team-member"
@@ -63,16 +63,16 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.2 }}
           onClick={() =>
             setSelectedMember({
-              name: "Ahmad Muhammad Kabir",
-              role: "Director",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Ahmad Muhammad Kabir"),
+              name: "Michael Chen",
+              role: "Operations Director",
+              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("Michael Chen"),
             })
           }
         >
-          <img src="/images/Team/Ahmad kabir.png" alt="Ahmad Muhammad Kabir" />
-          <h4>Ahmad Muhammad Kabir</h4>
-          <p>Director</p>
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Michael Chen" />
+          <h4>Michael Chen</h4>
+          <p>Operations Director</p>
         </motion.div>
         <motion.div
           className="team-member"
@@ -82,19 +82,19 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.3 }}
           onClick={() =>
             setSelectedMember({
-              name: "Kabir Muhammad Kabir",
-              role: "Director",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Kabir Muhammad Kabir"),
+              name: "David Wilson",
+              role: "Creative Director",
+              image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("David Wilson"),
             })
           }
         >
           <img
-            src="/images/Team/Muhammad Kabir.png"
-            alt="Kabir Muhammad Kabir"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+            alt="David Wilson"
           />
-          <h4>Kabir Muhammad Kabir</h4>
-          <p>Director</p>
+          <h4>David Wilson</h4>
+          <p>Creative Director</p>
         </motion.div>
         <motion.div
           className="team-member"
@@ -104,19 +104,19 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.4 }}
           onClick={() =>
             setSelectedMember({
-              name: "Muhammad Abdallah Dayyan",
-              role: "Director, Services Operations",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Muhammad Abdallah Dayyan"),
+              name: "Emma Rodriguez",
+              role: "Strategic Director",
+              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("Emma Rodriguez"),
             })
           }
         >
           <img
-            src="/images/Team/Muhammad Dayyan.png"
-            alt="Muhammad Abdallah Dayyan"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+            alt="Emma Rodriguez"
           />
-          <h4>Muhammad Abdallah Dayyan</h4>
-          <p>Director, Services Operations</p>
+          <h4>Emma Rodriguez</h4>
+          <p>Strategic Director</p>
         </motion.div>
       </div>
 
@@ -127,7 +127,7 @@ export default function Team() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-bold mb-4">Management Staffs</h2>
+        <h2 className="text-3xl font-bold mb-4 text-primary">ALAF Management Team</h2>
       </motion.div>
       <div className="team-grid">
         <motion.div
@@ -138,16 +138,16 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.1 }}
           onClick={() =>
             setSelectedMember({
-              name: "Hafsat Kabir",
-              role: "Head of Dispatch",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Hafsat Kabir"),
+              name: "Lisa Martinez",
+              role: "Operations Manager",
+              image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("Lisa Martinez"),
             })
           }
         >
-          <img src="/images/Team/Hafsah Kabir.png" alt="Hafsat Kabir" />
-          <h4>Hafsat Kabir</h4>
-          <p>Head of Dispatch</p>
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" alt="Lisa Martinez" />
+          <h4>Lisa Martinez</h4>
+          <p>Operations Manager</p>
         </motion.div>
         <motion.div
           className="team-member"
@@ -157,79 +157,16 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.2 }}
           onClick={() =>
             setSelectedMember({
-              name: "Hassana Kabir",
-              role: "Finance Officer",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Hassana Kabir"),
+              name: "James Thompson",
+              role: "Finance Manager",
+              image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("James Thompson"),
             })
           }
         >
-          <img src="/images/Team/Hassana Kabir.png" alt="Hassana Kabir" />
-          <h4>Hassana Kabir</h4>
-          <p>Finance Officer</p>
-        </motion.div>
-        <motion.div
-          className="team-member"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          onClick={() =>
-            setSelectedMember({
-              name: "Muhammad Mu'awiyya",
-              role: "Project Manager / Production Manager",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Muhammad Mu'awiyya"),
-            })
-          }
-        >
-          <img
-            src="/images/Team/Muhammad Mu'awiyya.png"
-            alt="Muhammad Mu'awiyya"
-          />
-          <h4>Muhammad Mu'awiyya</h4>
-          <p>Project Manager / Production Manager</p>
-        </motion.div>
-        <motion.div
-          className="team-member"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          onClick={() =>
-            setSelectedMember({
-              name: "Muhammad Abdulkadir",
-              role: "Executive Assistant / HR",
-              image: "/images/Muhammad Abdulkadir.jpg",
-              bio: getMemberBio("Muhammad Abdulkadir"),
-            })
-          }
-        >
-          <img
-            src="/images/Team/Muhammad Abdulkadir.jpg"
-            alt="Muhammad Abdulkadir"
-          />
-          <h4>Muhammad Abdulkadir</h4>
-          <p>Executive Assistant / HR</p>
-        </motion.div>
-        <motion.div
-          className="team-member"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          onClick={() =>
-            setSelectedMember({
-              name: "Ahmad Usman",
-              role: "Accountant / Special Assistant",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Ahmad Usman"),
-            })
-          }
-        >
-          <img src="/images/Team/Usman Ahmad.png" alt="Ahmad Usman" />
-          <h4>Ahmad Usman</h4>
-          <p>Accountant / Special Assistant</p>
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face" alt="James Thompson" />
+          <h4>James Thompson</h4>
+          <p>Finance Manager</p>
         </motion.div>
         <motion.div
           className="team-member"
@@ -239,100 +176,41 @@ export default function Team() {
           transition={{ duration: 0.6, delay: 0.3 }}
           onClick={() =>
             setSelectedMember({
-              name: "Abubakar Aliyu Gambo",
-              role: "Marketing / IT",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Abubakar Aliyu Gambo"),
+              name: "Rachel Adams",
+              role: "Project Manager",
+              image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("Rachel Adams"),
             })
           }
         >
           <img
-            src="/images/Team/Abubakar Gambo Aliyu.png"
-            alt="Abubakar Aliyu Gambo"
+            src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=150&h=150&fit=crop&crop=face"
+            alt="Rachel Adams"
           />
-          <h4>Abubakar Aliyu Gambo</h4>
-          <p>Marketing / IT</p>
+          <h4>Rachel Adams</h4>
+          <p>Project Manager</p>
         </motion.div>
-
         <motion.div
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           onClick={() =>
             setSelectedMember({
-              name: "Aliyu Auwal",
-              role: "Project Manager / Secretary",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Aliyu Auwal"),
-            })
-          }
-        >
-          <img src="/images/Team/Auwal Aliyu.jpeg" alt="Aliyu Auwal" />
-          <h4>Aliyu Auwal</h4>
-          <p>Project Manager / Secretary</p>
-        </motion.div>
-        {/* <motion.div
-          className="team-member"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          onClick={() =>
-            setSelectedMember({
-              name: "Usman Hassan",
-              role: "Store Keeper / Procurement",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Usman Hassan"),
-            })
-          }
-        >
-          <img src="/images/Muhammad Abdulkadir.jpg" alt="Usman Hassan" />
-          <h4>Usman Hassan</h4>
-          <p>Store Keeper / Procurement</p>
-        </motion.div> */}
-        <motion.div
-          className="team-member"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          onClick={() =>
-            setSelectedMember({
-              name: "Nwachukwu Obioma",
-              role: "Designer",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Nwachukwu Obioma"),
+              name: "Alex Kumar",
+              role: "Marketing & IT Manager",
+              image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face",
+              bio: getMemberBio("Alex Kumar"),
             })
           }
         >
           <img
-            src="/images/Team/Nwachukwu Obioma.jpeg"
-            alt="Nwachukwu Obioma"
+            src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+            alt="Alex Kumar"
           />
-          <h4>Nwachukwu Obioma</h4>
-          <p>Factory Manager</p>
-        </motion.div>
-
-        <motion.div
-          className="team-member"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          onClick={() =>
-            setSelectedMember({
-              name: "Mrs. Fadila Sambo",
-              role: "Kenya Operations",
-              image: "https://via.placeholder.com/120",
-              bio: getMemberBio("Mrs. Fadila Sambo"),
-            })
-          }
-        >
-          <img src="/images/Team/Fadila Sambo.jpeg" alt="Mrs. Fadila Sambo" />
-          <h4>Mrs. Fadila Sambo</h4>
-          <p>Kenya Operations</p>
+          <h4>Alex Kumar</h4>
+          <p>Marketing & IT Manager</p>
         </motion.div>
       </div>
 

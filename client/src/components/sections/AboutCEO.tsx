@@ -29,12 +29,12 @@ export default function AboutCEO() {
             <Card className="overflow-hidden">
               <CardContent className="p-6">
                 <img
-                  src="/images/Khadija%20Kabir.jpg"
-                  alt="Khadija Kabir"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  alt="CEO Portrait"
                   className="w-full rounded-lg"
                 />
                 <h3 className="text-2xl font-semibold mt-4 mb-1">
-                  Khadija Kabir
+                  John Smith
                 </h3>
                 <p className="font-semibold text-foreground">CEO/PRESIDENT</p>
                 <p className="text-primary font-bold text-sm uppercase mb-6">
@@ -42,17 +42,15 @@ export default function AboutCEO() {
                 </p>
                 <div className="bg-primary/10 border-l-4 border-primary p-4 rounded-lg">
                   <p className="mb-4">
-                    <strong>BIO:</strong> Khadija Kabir, Bsc Microbiology, PGD
-                    Management is the visionary CEO behind ALAF Furniture,
-                    who embarked on an extraordinary journey that gave birth to
-                    luxury furniture and interior design excellence.
+                    <strong>BIO:</strong> John Smith is the visionary CEO behind ALAF Furniture,
+                    bringing over 15 years of experience in luxury furniture design and interior
+                    architecture to create exceptional living spaces.
                   </p>
                   <p>
-                    Enduring years of experience culminated in the success
-                    witnessed today. Khadija's story is a captivating blend of
-                    beauty, challenges, setbacks, and invaluable lessons. Her
-                    tenacity as an entrepreneur, mother, sister, and daughter
-                    sets an inspiring example.
+                    His passion for craftsmanship and modern design has led ALAF to become
+                    a premier destination for sophisticated furniture solutions. John's 
+                    leadership philosophy centers on innovation, quality, and creating
+                    timeless pieces that transform spaces.
                   </p>
                 </div>
               </CardContent>
@@ -70,32 +68,30 @@ export default function AboutCEO() {
             <Card className="h-full bg-primary text-primary-foreground">
               <CardContent className="p-8 space-y-6">
                 <p>
-                  Amidst her demanding role, Khadija finds solace in the
-                  kitchen, showcasing her culinary skills, and in her study
-                  room, immersed in reading and scribing. The CEO's dedication
-                  to both work and personal growth exemplifies her commitment to
-                  excellence.
+                  Beyond his professional achievements, John is passionate about
+                  sustainable design practices and mentoring the next generation
+                  of furniture designers. His dedication to both innovation and
+                  environmental responsibility drives ALAF's commitment to excellence.
                 </p>
                 <p>
-                  <strong>Khadija's accolades</strong>, including recognition
-                  from the Northern Youth Council of Nigeria and the Nigeria
-                  Youth League, speak volumes.
+                  <strong>John's achievements</strong> include recognition as Designer
+                  of the Year and multiple awards for innovative furniture design
+                  from leading industry organizations.
                 </p>
                 <p>
-                  She has been hailed as an Icon of Hope and Excellence in
-                  Service Delivery. Arewa Arise Against Drug Abuse and
-                  Corruption (AADAC) lauds her as an achiever par excellence.
+                  He has been featured in top design magazines and has spoken at
+                  international furniture and design conferences, sharing his vision
+                  for the future of luxury interior design.
                 </p>
                 <p>
-                  Her journey underscores the belief that dreams are attainable
-                  when one silences external noise and pursues what truly
-                  matters. <strong>Khadija Kabir's story</strong> is a testament
-                  to the power of perseverance, ambition, and the pursuit of
-                  one's inner calling.
+                  His philosophy centers on the belief that exceptional furniture
+                  should tell a story while serving its purpose beautifully.
+                  <strong>John's leadership</strong> continues to drive ALAF toward
+                  new heights of design excellence and customer satisfaction.
                 </p>
                 <img
-                  src="/images/decor.jpg"
-                  alt="Decorative Table"
+                  src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+                  alt="Modern Furniture Design"
                   className="w-full max-w-[400px] mt-6 rounded-lg mx-auto"
                 />
               </CardContent>
