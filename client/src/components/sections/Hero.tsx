@@ -1,13 +1,26 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+
+const images = [
+  "/images/hero-living-room.png",
+  "/images/hero-dining-room.png",
+  "/images/hero-bedroom.png",
+];
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 10000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
@@ -17,8 +30,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1489514354504-1653aa90e34e')",
+          backgroundImage: `url(${images[currentIndex]})`,
         }}
       />
 
@@ -29,21 +41,18 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h1 className="text-4xl sm:text-6xl font-bold text-primary mb-6">
-            Crafting Excellence in
+          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
+            Luxury Furniture &
             <br />
-            Construction & Furniture
+            <span className="text-primary">Interior Design</span>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Expert craftsmen delivering bespoke furniture, construction, and
-            finishing services with unparalleled quality and attention to detail.
+          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            ALAF creates exceptional furniture and interior spaces that blend
+            modern sophistication with timeless elegance, transforming your
+            vision into reality.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button
-              size="lg"
-              className="group"
-              asChild
-            >
+            <Button size="lg" className="group" asChild>
               <a href="#contact">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -52,13 +61,9 @@ export default function Hero() {
 
             <Dialog>
               <DialogTrigger asChild>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="group"
-                >
-                  <Play className="mr-2 h-4 w-4" />
-                  Watch Video
+                <Button size="lg" variant="outline" className="group">
+                  <Play className="mr-2 h-4 w-4 text-primary" />
+                  Portfolio Video
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-4xl">

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { RiFlag2Line, RiEyeLine, RiHeartLine } from "react-icons/ri";
+import { cn } from "@/lib/utils";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 
 export default function About() {
   return (
@@ -13,10 +16,10 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">About Elfijr Contractors</h2>
+          <h2 className="text-3xl font-bold mb-4 text-primary">About ALAF Furniture</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            With years of experience in the industry, we've built our reputation on
-            quality craftsmanship and attention to detail.
+            ALAF Furniture is a premier destination for luxury furniture and interior design
+            solutions, crafting exceptional pieces that define modern sophistication.
           </p>
         </motion.div>
 
@@ -34,9 +37,9 @@ export default function About() {
                   <h3 className="text-xl font-semibold">Our Mission</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  To deliver exceptional quality in every project while exceeding
-                  client expectations through innovative solutions and superior
-                  craftsmanship.
+                  To create luxury furniture and interior designs that transform spaces
+                  into sophisticated environments, exceeding client expectations through
+                  innovative design and superior craftsmanship.
                 </p>
               </CardContent>
             </Card>
@@ -55,8 +58,9 @@ export default function About() {
                   <h3 className="text-xl font-semibold">Our Vision</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  To be the leading provider of high-end construction and furniture
-                  solutions, known for our commitment to excellence and innovation.
+                  To be the premier destination for luxury furniture and interior design,
+                  known worldwide for our commitment to excellence, innovation, and
+                  timeless elegance.
                 </p>
               </CardContent>
             </Card>
@@ -76,8 +80,8 @@ export default function About() {
                 </div>
                 <p className="text-muted-foreground">
                   Quality, integrity, and customer satisfaction are at the heart of
-                  everything we do, driving us to deliver excellence in every
-                  project.
+                  everything we do, driving us to create furniture that stands the
+                  test of time and exceeds expectations.
                 </p>
               </CardContent>
             </Card>

@@ -15,68 +15,81 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { useState } from "react";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+
 
 const galleryItems = [
   {
     title: "Luxury Interior Design",
     description: "Modern living room with custom furniture",
-    detailedDescription: "A sophisticated living space that combines contemporary design with traditional craftsmanship. Features custom-made furniture and premium materials throughout.",
-    image: "/images/gallery/interior-1.jpg",
+    detailedDescription:
+      "A sophisticated living space that combines contemporary design with traditional craftsmanship. Features custom-made furniture and premium materials throughout.",
+    image: "/images/Gallery/IMG_6288.jpg",
     category: "Interior Design",
   },
   {
     title: "Custom Woodwork",
     description: "Hand-crafted wooden dining table",
-    detailedDescription: "Expertly crafted dining table made from sustainable hardwood. Features intricate detailing and a durable finish that will last for generations.",
-    image: "/images/gallery/furniture-1.jpg",
+    detailedDescription:
+      "Expertly crafted dining table made from sustainable hardwood. Features intricate detailing and a durable finish that will last for generations.",
+    image: "/images/Gallery/IMG_6290.jpg",
     category: "Furniture",
   },
   {
     title: "Commercial Space",
     description: "Office renovation project",
-    detailedDescription: "Complete office renovation that transformed an outdated space into a modern, productive workplace. Includes custom furniture and innovative space planning.",
-    image: "/images/gallery/commercial-1.jpg",
+    detailedDescription:
+      "Complete office renovation that transformed an outdated space into a modern, productive workplace. Includes custom furniture and innovative space planning.",
+    image: "/images/Gallery/IMG_6303.jpg",
     category: "Construction",
   },
   {
     title: "Residential Project",
     description: "Modern home construction",
-    detailedDescription: "New residential construction featuring contemporary architecture and high-end finishes. Built with attention to detail and energy efficiency in mind.",
-    image: "/images/gallery/residential-1.jpg",
+    detailedDescription:
+      "New residential construction featuring contemporary architecture and high-end finishes. Built with attention to detail and energy efficiency in mind.",
+    image: "/images/Gallery/IMG_9333.jpg",
     category: "Building",
   },
   {
     title: "Kitchen Design",
     description: "Contemporary kitchen with custom cabinets",
-    detailedDescription: "Modern kitchen featuring custom cabinetry, premium appliances, and innovative storage solutions. Designed for both functionality and style.",
-    image: "/images/gallery/kitchen-1.jpg",
+    detailedDescription:
+      "Modern kitchen featuring custom cabinetry, premium appliances, and innovative storage solutions. Designed for both functionality and style.",
+    image: "/images/Gallery/IMG_9336.jpg",
     category: "Interior Design",
   },
   {
     title: "Outdoor Furniture",
     description: "Custom patio furniture set",
-    detailedDescription: "Weather-resistant outdoor furniture set, custom-designed for comfort and durability. Perfect for creating an inviting outdoor living space.",
-    image: "/images/gallery/outdoor-1.jpg",
+    detailedDescription:
+      "Weather-resistant outdoor furniture set, custom-designed for comfort and durability. Perfect for creating an inviting outdoor living space.",
+    image: "/images/Gallery/IMG_9335.jpg",
     category: "Furniture",
   },
   {
     title: "Office Design",
     description: "Modern workspace design",
-    detailedDescription: "Contemporary office design that promotes productivity and collaboration. Features ergonomic furniture and innovative space planning.",
-    image: "/images/gallery/office-1.jpg",
+    detailedDescription:
+      "Contemporary office design that promotes productivity and collaboration. Features ergonomic furniture and innovative space planning.",
+    image: "/images/Gallery/IMG_6297.jpg",
     category: "Interior Design",
   },
   {
     title: "Custom Bedroom",
     description: "Luxury bedroom furniture",
-    detailedDescription: "Bespoke bedroom furniture set crafted with premium materials. Includes custom bed frame, wardrobes, and matching accessories.",
-    image: "/images/gallery/bedroom-1.jpg",
+    detailedDescription:
+      "Bespoke bedroom furniture set crafted with premium materials. Includes custom bed frame, wardrobes, and matching accessories.",
+    image: "/images/Gallery/IMG_6305.jpg",
     category: "Furniture",
   },
 ];
 
 export default function Gallery() {
-  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<
+    (typeof galleryItems)[0] | null
+  >(null);
 
   return (
     <section id="gallery" className="py-20">
@@ -103,32 +116,41 @@ export default function Gallery() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card 
-                className="overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
-                onClick={() => setSelectedItem(item)}
-              >
-                <AspectRatio ratio={1}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="object-cover w-full h-full"
-                  />
-                </AspectRatio>
-                <CardHeader className="p-4">
-                  <CardTitle className="text-lg">{item.title}</CardTitle>
-                  <CardDescription>{item.category}</CardDescription>
-                </CardHeader>
-                <CardContent className="p-4 pt-0">
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <Link href={`/gallery/${item.title.toLowerCase().replace(/\s+/g, '-')}`}> {/* Assumed route structure */}
+                <Card
+                  className="overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
+                  //onClick={() => setSelectedItem(item)}  Removed onClick since we now use a link
+                >
+                  <AspectRatio ratio={1}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="object-cover w-full h-full"
+                    />
+                  </AspectRatio>
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg">{item.title}</CardTitle>
+                    <CardDescription>{item.category}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0">
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </div>
-
-        <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
+        <div className="flex justify-end mt-8">
+          <Link href="/gallery">
+            <ArrowRight className="h-8 w-8 text-[#E39D1A] hover:scale-110 transition-transform" />
+          </Link>
+        </div>
+        <Dialog
+          open={!!selectedItem}
+          onOpenChange={() => setSelectedItem(null)}
+        >
           {selectedItem && (
             <DialogContent className="max-w-4xl">
               <DialogHeader>
@@ -136,7 +158,7 @@ export default function Gallery() {
                 <DialogDescription>{selectedItem.category}</DialogDescription>
               </DialogHeader>
               <div className="mt-4">
-                <AspectRatio ratio={16/9}>
+                <AspectRatio ratio={16 / 9}>
                   <img
                     src={selectedItem.image}
                     alt={selectedItem.title}

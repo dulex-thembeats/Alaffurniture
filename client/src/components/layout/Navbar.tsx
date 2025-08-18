@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Team", href: "#team" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Team", href: "/team" },
+  { name: "Contact", href: "/contact" },
+  { name: "Downloads", href: "/downloads", icon: Download },
+  { name: "Store", href: "/store", icon: ShoppingBag, className: "ml-6" }
 ];
 
 export default function Navbar() {
@@ -22,19 +24,20 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/">
-              <img src="/images/logo.png" alt="Elfijr" className="h-16 w-auto" />
+              <img src="/images/alaf-logo.png" alt="ALAF Furniture" className="h-12 w-auto" />
             </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
-                className="text-[#004080] hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={`text-primary hover:text-primary/80 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center ${item.className || ''}`}
               >
                 {item.name}
-              </a>
+                {item.icon && <item.icon className="ml-1 h-4 w-4 text-primary" />}
+              </Link>
             ))}
           </div>
 
@@ -44,7 +47,7 @@ export default function Navbar() {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6 text-primary" /> : <Menu className="h-6 w-6 text-primary" />}
             </Button>
           </div>
         </div>
@@ -60,14 +63,15 @@ export default function Navbar() {
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background shadow-lg">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
-                  className="text-[#004080] hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-primary hover:text-primary/80 block px-3 py-2 rounded-md text-base font-medium flex items-center"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </a>
+                  {item.icon && <item.icon className="ml-1 h-4 w-4 text-primary" />}
+                </Link>
               ))}
             </div>
           </motion.div>

@@ -7,44 +7,47 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  Hammer,
-  Paintbrush,
   Sofa,
-  Building2,
-  Paintbrush2,
-  Construction,
+  Home,
+  Palette,
+  Lightbulb,
+  Clock,
+  Users,
 } from "lucide-react";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+
 
 const services = [
   {
-    title: "Bespoke Furniture",
-    description: "Custom-designed furniture tailored to your specific needs",
+    title: "Custom Furniture Design",
+    description: "Bespoke furniture pieces crafted to your exact specifications and style preferences",
     icon: Sofa,
   },
   {
-    title: "Cabinetry",
-    description: "High-quality custom cabinets for any space",
-    icon: Hammer,
+    title: "Interior Design",
+    description: "Complete interior design solutions that transform your space into a luxury environment",
+    icon: Home,
   },
   {
-    title: "Upholstery",
-    description: "Expert upholstery services for furniture restoration",
-    icon: Paintbrush,
+    title: "Color Consultation",
+    description: "Expert color palette selection and design consultation for harmonious spaces",
+    icon: Palette,
   },
   {
-    title: "Building",
-    description: "Complete building and renovation services",
-    icon: Building2,
+    title: "Lighting Design",
+    description: "Professional lighting solutions that enhance ambiance and functionality",
+    icon: Lightbulb,
   },
   {
-    title: "Painting",
-    description: "Professional painting services for all surfaces",
-    icon: Paintbrush2,
+    title: "Project Management",
+    description: "End-to-end project coordination ensuring timely delivery and quality execution",
+    icon: Clock,
   },
   {
-    title: "POP & Construction",
-    description: "Plaster of Paris and general construction work",
-    icon: Construction,
+    title: "Design Consultation",
+    description: "Personalized design consultations to bring your vision to life",
+    icon: Users,
   },
 ];
 
@@ -59,10 +62,10 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Our Services</h2>
+          <h2 className="text-3xl font-bold mb-4 text-primary">Our Services</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            We offer a comprehensive range of construction and furniture services
-            to meet all your needs
+            ALAF offers a comprehensive range of luxury furniture and interior design 
+            services to transform your space into a sophisticated sanctuary
           </p>
         </motion.div>
 
@@ -77,7 +80,7 @@ export default function Services() {
             >
               <Card className="h-full">
                 <CardHeader>
-                  <service.icon className="h-10 w-10 text-primary mb-4" />
+                  <service.icon className="h-10 w-10 text-[#E39D1A] mb-4" />
                   <CardTitle>{service.title}</CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
@@ -91,6 +94,11 @@ export default function Services() {
               </Card>
             </motion.div>
           ))}
+        </div>
+        <div className="flex justify-end mt-8">
+          <Link href="/services">
+            <ArrowRight className="h-8 w-8 text-[#E39D1A] hover:scale-110 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
