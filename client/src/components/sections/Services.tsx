@@ -95,11 +95,6 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
-        <div className="flex justify-end mt-8">
-          <Link href="/services">
-            <ArrowRight className="h-8 w-8 text-[#E39D1A] hover:scale-110 transition-transform" />
-          </Link>
-        </div>
       </div>
     </section>
   );
