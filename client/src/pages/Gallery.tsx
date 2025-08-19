@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -14,154 +14,94 @@ interface GalleryItem {
   description: string;
 }
 
-// Complete gallery items including all your photos
-const allGalleryItems: GalleryItem[] = [
-  // Hero images
+const galleryItems: GalleryItem[] = [
   {
     id: "1",
     title: "Modern Living Room",
     category: "Living Spaces",
-    image: "/images/hero-living-room.png",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Contemporary living room design with luxury furniture and elegant lighting"
   },
   {
     id: "2",
     title: "Dining Excellence",
-    category: "Dining Rooms", 
-    image: "/images/hero-dining-room.png",
+    category: "Dining Rooms",
+    image: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Sophisticated dining space with modern furniture and ambient lighting"
   },
   {
     id: "3",
     title: "Bedroom Sanctuary",
     category: "Bedrooms",
-    image: "/images/hero-bedroom.png",
+    image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Luxury bedroom design with contemporary furniture and elegant styling"
   },
-  // Gallery collection
   {
     id: "4",
-    title: "Furniture Showroom",
-    category: "Showroom",
-    image: "/images/gallery-showroom.png",
-    description: "Premium furniture collection featuring modern designs and luxury pieces"
-  },
-  {
-    id: "5",
     title: "Executive Office",
     category: "Office Spaces",
-    image: "/images/gallery-office.png",
+    image: "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Professional office setup with luxury furniture and contemporary design"
   },
   {
-    id: "6",
+    id: "5",
     title: "Modern Kitchen",
     category: "Kitchens",
-    image: "/images/gallery-kitchen.png",
+    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "State-of-the-art kitchen design with contemporary cabinets and luxury finishes"
   },
   {
-    id: "7",
+    id: "6",
     title: "Contemporary Bathroom",
     category: "Bathrooms",
-    image: "/images/gallery-bathroom.png",
+    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Elegant bathroom design with modern fixtures and sophisticated styling"
   },
   {
-    id: "8",
+    id: "7",
     title: "Outdoor Living",
     category: "Outdoor Spaces",
-    image: "/images/gallery-patio.png",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Luxury outdoor furniture and patio design for elegant outdoor living"
   },
   {
-    id: "9",
+    id: "8",
     title: "Walk-in Closet",
     category: "Storage Solutions",
-    image: "/images/gallery-closet.png",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     description: "Modern walk-in closet with luxury storage solutions and elegant organization"
   },
-  // Project gallery photos
+  {
+    id: "9",
+    title: "Luxury Lounge",
+    category: "Living Spaces",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    description: "Sophisticated lounge area with premium furniture and ambient lighting"
+  },
   {
     id: "10",
-    title: "Luxury Interior Design",
-    category: "Interior Design",
-    image: "/images/Gallery/IMG_6288.jpg",
-    description: "Modern living room with custom furniture and sophisticated design elements"
+    title: "Designer Workspace",
+    category: "Office Spaces",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    description: "Creative workspace with modern furniture and inspiring design elements"
   },
   {
     id: "11",
-    title: "Custom Woodwork",
-    category: "Furniture",
-    image: "/images/Gallery/IMG_6290.jpg",
-    description: "Hand-crafted wooden dining table with intricate detailing"
+    title: "Master Suite",
+    category: "Bedrooms",
+    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    description: "Luxurious master bedroom with custom furniture and elegant décor"
   },
   {
     id: "12",
-    title: "Contemporary Workspace",
-    category: "Office Spaces",
-    image: "/images/Gallery/IMG_6291.jpg",
-    description: "Modern office environment with ergonomic furniture and clean design"
-  },
-  {
-    id: "13",
-    title: "Professional Office",
-    category: "Office Spaces",
-    image: "/images/Gallery/IMG_6297.jpg",
-    description: "Contemporary office design promoting productivity and collaboration"
-  },
-  {
-    id: "14",
-    title: "Commercial Space",
-    category: "Commercial",
-    image: "/images/Gallery/IMG_6303.jpg",
-    description: "Complete commercial renovation with modern fixtures and furniture"
-  },
-  {
-    id: "15",
-    title: "Custom Bedroom Suite",
-    category: "Bedrooms",
-    image: "/images/Gallery/IMG_6305.jpg",
-    description: "Bespoke bedroom furniture crafted with premium materials"
-  },
-  {
-    id: "16",
-    title: "Modern Home Design",
-    category: "Residential",
-    image: "/images/Gallery/IMG_9332.jpg",
-    description: "Contemporary home featuring modern architecture and luxury finishes"
-  },
-  {
-    id: "17",
-    title: "Residential Project",
-    category: "Residential",
-    image: "/images/Gallery/IMG_9333.jpg",
-    description: "New residential construction with attention to detail and energy efficiency"
-  },
-  {
-    id: "18",
-    title: "Custom Living Space",
-    category: "Living Spaces",
-    image: "/images/Gallery/IMG_9334.jpg",
-    description: "Elegant living area with custom furniture and sophisticated styling"
-  },
-  {
-    id: "19",
-    title: "Outdoor Furniture Set",
-    category: "Outdoor Spaces",
-    image: "/images/Gallery/IMG_9335.jpg",
-    description: "Weather-resistant outdoor furniture designed for comfort and durability"
-  },
-  {
-    id: "20",
-    title: "Contemporary Kitchen",
+    title: "Gourmet Kitchen",
     category: "Kitchens",
-    image: "/images/Gallery/IMG_9336.jpg",
-    description: "Modern kitchen featuring custom cabinetry and premium appliances"
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    description: "High-end kitchen featuring premium appliances and custom cabinetry"
   }
 ];
 
-const categories = ["All", ...Array.from(new Set(allGalleryItems.map(item => item.category)))];
+const categories = ["All", ...Array.from(new Set(galleryItems.map(item => item.category)))];
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -170,8 +110,8 @@ export default function GalleryPage() {
 
   const filteredItems = useMemo(() => {
     return selectedCategory === "All" 
-      ? allGalleryItems 
-      : allGalleryItems.filter(item => item.category === selectedCategory);
+      ? galleryItems 
+      : galleryItems.filter(item => item.category === selectedCategory);
   }, [selectedCategory]);
 
   const openModal = (item: GalleryItem) => {
@@ -197,9 +137,9 @@ export default function GalleryPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-primary mb-4">Portfolio Showcase</h1>
+          <h1 className="text-4xl font-bold text-primary mb-4">Our Portfolio</h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover our complete collection of luxury furniture and interior design projects featuring
+            Explore our collection of luxury furniture and interior design projects that showcase
             modern sophistication and timeless elegance.
           </p>
 
@@ -216,10 +156,6 @@ export default function GalleryPage() {
                 {category}
               </Button>
             ))}
-          </div>
-
-          <div className="text-sm text-muted-foreground">
-            Showing {filteredItems.length} of {allGalleryItems.length} projects
           </div>
         </motion.div>
 
