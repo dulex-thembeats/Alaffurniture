@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 interface GalleryItem {
   id: string;
@@ -13,6 +14,7 @@ interface GalleryItem {
   description: string;
 }
 
+// Showcase items for home page preview
 const galleryItems: GalleryItem[] = [
   {
     id: "1",
@@ -55,27 +57,6 @@ const galleryItems: GalleryItem[] = [
     category: "Kitchens",
     image: "/images/gallery-kitchen.png",
     description: "State-of-the-art kitchen design with contemporary cabinets and luxury finishes"
-  },
-  {
-    id: "7",
-    title: "Contemporary Bathroom",
-    category: "Bathrooms",
-    image: "/images/gallery-bathroom.png",
-    description: "Elegant bathroom design with modern fixtures and sophisticated styling"
-  },
-  {
-    id: "8",
-    title: "Outdoor Living",
-    category: "Outdoor Spaces",
-    image: "/images/gallery-patio.png",
-    description: "Luxury outdoor furniture and patio design for elegant outdoor living"
-  },
-  {
-    id: "9",
-    title: "Walk-in Closet",
-    category: "Storage Solutions",
-    image: "/images/gallery-closet.png",
-    description: "Modern walk-in closet with luxury storage solutions and elegant organization"
   }
 ];
 
@@ -115,26 +96,13 @@ export default function ModernGallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-primary mb-4">Our Portfolio</h2>
+          <h2 className="text-4xl font-bold text-primary mb-4">Portfolio Showcase</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Explore our collection of luxury furniture and interior design projects that showcase
+            Discover our finest luxury furniture and interior design projects featuring
             modern sophistication and timeless elegance.
           </p>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-300"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
+          
         </motion.div>
 
         {/* Gallery Grid */}
@@ -175,6 +143,22 @@ export default function ModernGallery() {
               </motion.div>
             ))}
           </AnimatePresence>
+        </motion.div>
+
+        {/* View Full Gallery Link */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <Link href="/gallery">
+            <Button variant="outline" size="lg" className="group">
+              View Full Gallery
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Modal */}
