@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Store from "@/pages/Store";
+import Gallery from "@/pages/Gallery";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -14,7 +15,6 @@ import News from "@/pages/News"; // Assumed component
 // Placeholder components for new pages.  Replace these with your actual components.
 const AboutPage = () => <div>About Us</div>;
 const ServicesPage = () => <div>Our Services</div>;
-const GalleryPage = () => <div>Image Gallery</div>;
 const TeamPage = () => <div>Team Members</div>;
 const ContactPage = () => <div>Contact Us</div>;
 
@@ -39,7 +39,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/about" component={AboutPage} />
         <Route path="/services" component={ServicesPage} />
-        <Route path="/gallery" component={GalleryPage} />
+        <Route path="/gallery" component={Gallery} />
         <Route path="/team" component={TeamPage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/store" component={Store} />
