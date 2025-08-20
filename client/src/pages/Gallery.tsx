@@ -1,10 +1,11 @@
-
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { X, ZoomIn, ChevronLeft, ChevronRight, Search, Filter, Grid, Heart, Share2 } from "lucide-react";
 
 interface GalleryItem {
   id: string;
@@ -12,107 +13,174 @@ interface GalleryItem {
   category: string;
   image: string;
   description: string;
+  featured?: boolean;
+  year?: string;
+  client?: string;
 }
 
-const galleryItems: GalleryItem[] = [
+// Modern gallery collection with real furniture images
+const allGalleryItems: GalleryItem[] = [
   {
     id: "1",
-    title: "Modern Living Room",
-    category: "Living Spaces",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Contemporary living room design with luxury furniture and elegant lighting"
+    title: "Luxury Velvet Sofa Collection",
+    category: "Living Room",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Premium velvet sofa collection featuring rich textures and contemporary design elements with gold accent legs",
+    featured: true,
+    year: "2024",
+    client: "Private Residence"
   },
   {
     id: "2",
-    title: "Dining Excellence",
-    category: "Dining Rooms",
-    image: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Sophisticated dining space with modern furniture and ambient lighting"
+    title: "Modern Dining Table Set",
+    category: "Dining",
+    image: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Elegant 8-seater dining table with matching chairs, featuring marble top and brass details",
+    year: "2024",
+    client: "Corporate Office"
   },
   {
     id: "3",
-    title: "Bedroom Sanctuary",
-    category: "Bedrooms",
-    image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Luxury bedroom design with contemporary furniture and elegant styling"
+    title: "Executive Office Suite",
+    category: "Office",
+    image: "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Sophisticated executive office furniture including leather chairs and premium desk solutions",
+    featured: true,
+    year: "2024"
   },
   {
     id: "4",
-    title: "Executive Office",
-    category: "Office Spaces",
-    image: "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Professional office setup with luxury furniture and contemporary design"
+    title: "Master Bedroom Suite",
+    category: "Bedroom",
+    image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Luxurious king-size bed frame with upholstered headboard and matching nightstands",
+    year: "2024",
+    client: "Luxury Hotel"
   },
   {
     id: "5",
-    title: "Modern Kitchen",
-    category: "Kitchens",
-    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "State-of-the-art kitchen design with contemporary cabinets and luxury finishes"
+    title: "Contemporary Coffee Table",
+    category: "Living Room",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Modern glass-top coffee table with geometric metal base in rose gold finish",
+    year: "2024"
   },
   {
     id: "6",
-    title: "Contemporary Bathroom",
-    category: "Bathrooms",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Elegant bathroom design with modern fixtures and sophisticated styling"
+    title: "Minimalist Kitchen Design",
+    category: "Kitchen",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Clean-lined kitchen cabinetry with premium hardware and integrated appliances",
+    featured: true,
+    year: "2024",
+    client: "Modern Home"
   },
   {
     id: "7",
-    title: "Outdoor Living",
-    category: "Outdoor Spaces",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Luxury outdoor furniture and patio design for elegant outdoor living"
+    title: "Luxury Wardrobe System",
+    category: "Bedroom",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Custom walk-in wardrobe with mirror panels and LED lighting system",
+    year: "2024"
   },
   {
     id: "8",
-    title: "Walk-in Closet",
-    category: "Storage Solutions",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Modern walk-in closet with luxury storage solutions and elegant organization"
+    title: "Outdoor Dining Collection",
+    category: "Outdoor",
+    image: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Weather-resistant outdoor furniture set with teak wood and aluminum construction",
+    year: "2024"
   },
   {
     id: "9",
-    title: "Luxury Lounge",
-    category: "Living Spaces",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Sophisticated lounge area with premium furniture and ambient lighting"
+    title: "Reception Area Design",
+    category: "Office",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Modern reception furniture with curved seating and integrated lighting",
+    client: "Corporate Headquarters"
   },
   {
     id: "10",
-    title: "Designer Workspace",
-    category: "Office Spaces",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Creative workspace with modern furniture and inspiring design elements"
+    title: "Bar Stool Collection",
+    category: "Dining",
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Contemporary bar stools with leather upholstery and brass footrests",
+    year: "2024"
   },
   {
     id: "11",
-    title: "Master Suite",
-    category: "Bedrooms",
-    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "Luxurious master bedroom with custom furniture and elegant décor"
+    title: "Living Room Ensemble",
+    category: "Living Room",
+    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Complete living room furniture set with coordinated colors and textures",
+    featured: true,
+    year: "2024",
+    client: "Boutique Hotel"
   },
   {
     id: "12",
-    title: "Gourmet Kitchen",
-    category: "Kitchens",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    description: "High-end kitchen featuring premium appliances and custom cabinetry"
+    title: "Kids Bedroom Furniture",
+    category: "Bedroom",
+    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Playful yet sophisticated children's furniture with safety-first design",
+    year: "2024"
+  },
+  {
+    id: "13",
+    title: "Conference Room Table",
+    category: "Office",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Large conference table with integrated cable management and premium finishes",
+    client: "Tech Startup"
+  },
+  {
+    id: "14",
+    title: "Bathroom Vanity Design",
+    category: "Bathroom",
+    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Custom bathroom vanity with marble countertop and gold fixtures",
+    year: "2024"
+  },
+  {
+    id: "15",
+    title: "Patio Lounge Set",
+    category: "Outdoor",
+    image: "https://images.unsplash.com/photo-1493946947703-de5a4fb0ab3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    description: "Luxury outdoor lounge furniture with weather-resistant cushions",
+    featured: true,
+    year: "2024"
   }
 ];
 
-const categories = ["All", ...Array.from(new Set(galleryItems.map(item => item.category)))];
+const categories = ["All", ...Array.from(new Set(allGalleryItems.map(item => item.category)))];
+
+const layoutModes = [
+  { id: "grid", label: "Grid", icon: Grid },
+  { id: "masonry", label: "Masonry", icon: Filter }
+];
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [layoutMode, setLayoutMode] = useState("grid");
 
   const filteredItems = useMemo(() => {
-    return selectedCategory === "All" 
-      ? galleryItems 
-      : galleryItems.filter(item => item.category === selectedCategory);
-  }, [selectedCategory]);
+    let items = selectedCategory === "All" 
+      ? allGalleryItems 
+      : allGalleryItems.filter(item => item.category === selectedCategory);
+
+    if (searchQuery) {
+      items = items.filter(item => 
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    return items;
+  }, [selectedCategory, searchQuery]);
 
   const openModal = (item: GalleryItem) => {
     setSelectedImage(item);
@@ -130,39 +198,95 @@ export default function GalleryPage() {
 
   return (
     <main className="pt-20 min-h-screen bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-primary mb-4">Our Portfolio</h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Explore our collection of luxury furniture and interior design projects that showcase
-            modern sophistication and timeless elegance.
+          <h1 className="text-6xl font-bold text-primary mb-6">ALAF Gallery</h1>
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Explore our curated collection of luxury furniture and interior design masterpieces. 
+            Each piece represents our commitment to sophistication, quality, and timeless elegance.
           </p>
+        </motion.div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+        {/* Search and Filters */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
+          {/* Search Bar */}
+          <div className="relative max-w-md mx-auto mb-8">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Input
+              placeholder="Search furniture, rooms, or styles..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 pr-4 py-3 text-lg border-primary/20 focus:border-primary"
+            />
+          </div>
+
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             {categories.map((category) => (
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
+                size="lg"
                 onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-300"
+                className="transition-all duration-300 hover:scale-105"
               >
                 {category}
+                {selectedCategory === category && (
+                  <Badge variant="secondary" className="ml-2 bg-primary-foreground text-primary">
+                    {allGalleryItems.filter(item => category === "All" || item.category === category).length}
+                  </Badge>
+                )}
               </Button>
             ))}
+          </div>
+
+          {/* Results Info and Layout Toggle */}
+          <div className="flex justify-between items-center max-w-4xl mx-auto">
+            <div className="text-muted-foreground">
+              Showing <span className="font-semibold text-primary">{filteredItems.length}</span> of {allGalleryItems.length} pieces
+              {searchQuery && (
+                <span className="ml-2">
+                  for "<span className="font-medium">{searchQuery}</span>"
+                </span>
+              )}
+            </div>
+            
+            <div className="flex gap-2">
+              {layoutModes.map((mode) => (
+                <Button
+                  key={mode.id}
+                  variant={layoutMode === mode.id ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setLayoutMode(mode.id)}
+                  className="gap-2"
+                >
+                  <mode.icon className="h-4 w-4" />
+                  {mode.label}
+                </Button>
+              ))}
+            </div>
           </div>
         </motion.div>
 
         {/* Gallery Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className={`grid gap-6 ${
+            layoutMode === "masonry" 
+              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" 
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          }`}
         >
           <AnimatePresence>
             {filteredItems.map((item, index) => (
@@ -172,43 +296,99 @@ export default function GalleryPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-lg cursor-pointer"
-                onClick={() => openModal(item)}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group"
               >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center text-white p-4">
-                    <ZoomIn className="h-8 w-8 mx-auto mb-2" />
-                    <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                    <Badge variant="secondary" className="mb-2">
-                      {item.category}
-                    </Badge>
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer border-primary/10 hover:border-primary/30">
+                  <div 
+                    className={`relative overflow-hidden ${
+                      layoutMode === "masonry" ? "aspect-[4/5]" : "aspect-square"
+                    }`}
+                    onClick={() => openModal(item)}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    
+                    {item.featured && (
+                      <Badge className="absolute top-3 left-3 bg-primary/90 text-primary-foreground">
+                        Featured
+                      </Badge>
+                    )}
+
+                    {/* Hover Actions */}
+                    <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button variant="ghost" size="icon" className="bg-white/90 hover:bg-white text-primary">
+                        <Heart className="h-4 w-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="bg-white/90 hover:bg-white text-primary">
+                        <Share2 className="h-4 w-4" />
+                      </Button>
+                    </div>
+                    
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4">
+                      <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <ZoomIn className="h-6 w-6 mb-2" />
+                        <h3 className="font-bold text-lg mb-1">{item.title}</h3>
+                        <Badge variant="secondary" className="mb-2">
+                          {item.category}
+                        </Badge>
+                        <p className="text-sm text-white/90 line-clamp-2">{item.description}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+
+                  {/* Card Content */}
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold text-lg mb-2 text-primary group-hover:text-primary/80 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                      {item.description}
+                    </p>
+                    <div className="flex justify-between items-center text-xs text-muted-foreground">
+                      <span>{item.category}</span>
+                      {item.year && <span>{item.year}</span>}
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
 
+        {/* Empty State */}
+        {filteredItems.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-16"
+          >
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-bold text-primary mb-2">No items found</h3>
+            <p className="text-muted-foreground mb-6">
+              Try adjusting your search or filter criteria
+            </p>
+            <Button onClick={() => { setSearchQuery(""); setSelectedCategory("All"); }}>
+              Clear Filters
+            </Button>
+          </motion.div>
+        )}
+
         {/* Modal */}
         <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-6xl w-full p-0 overflow-hidden">
+          <DialogContent className="max-w-7xl w-full p-0 overflow-hidden bg-black">
             {selectedImage && (
               <div className="relative">
                 {/* Navigation Buttons */}
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white border-white/20"
                   onClick={() => navigateImage("prev")}
                 >
                   <ChevronLeft className="h-6 w-6" />
@@ -217,7 +397,7 @@ export default function GalleryPage() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white border-white/20"
                   onClick={() => navigateImage("next")}
                 >
                   <ChevronRight className="h-6 w-6" />
@@ -227,30 +407,69 @@ export default function GalleryPage() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white"
+                  className="absolute top-4 right-4 z-20 bg-black/50 hover:bg-black/70 text-white border-white/20"
                   onClick={() => setSelectedImage(null)}
                 >
                   <X className="h-6 w-6" />
                 </Button>
 
                 {/* Image */}
-                <div className="aspect-video">
+                <div className="aspect-video max-h-[80vh]">
                   <img
                     src={selectedImage.image}
                     alt={selectedImage.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 
                 {/* Details */}
-                <div className="p-6 bg-background">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-primary">{selectedImage.title}</h3>
-                    <Badge variant="outline">{selectedImage.category}</Badge>
-                  </div>
-                  <p className="text-muted-foreground text-lg">{selectedImage.description}</p>
-                  <div className="mt-4 text-sm text-muted-foreground">
-                    {currentIndex + 1} of {filteredItems.length} in {selectedCategory === "All" ? "gallery" : selectedCategory}
+                <div className="p-8 bg-background">
+                  <div className="max-w-4xl mx-auto">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <h3 className="text-3xl font-bold text-primary mb-2">{selectedImage.title}</h3>
+                        <div className="flex items-center gap-4 mb-4">
+                          <Badge variant="outline" className="text-sm">{selectedImage.category}</Badge>
+                          {selectedImage.year && (
+                            <span className="text-sm text-muted-foreground">{selectedImage.year}</span>
+                          )}
+                          {selectedImage.client && (
+                            <span className="text-sm text-muted-foreground">Client: {selectedImage.client}</span>
+                          )}
+                          {selectedImage.featured && (
+                            <Badge className="bg-primary">Featured Project</Badge>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm">
+                          <Heart className="h-4 w-4 mr-2" />
+                          Save
+                        </Button>
+                        <Button variant="outline" size="sm">
+                          <Share2 className="h-4 w-4 mr-2" />
+                          Share
+                        </Button>
+                      </div>
+                    </div>
+                    
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                      {selectedImage.description}
+                    </p>
+                    
+                    <div className="flex justify-between items-center text-sm text-muted-foreground border-t pt-6">
+                      <span>
+                        {currentIndex + 1} of {filteredItems.length} in {selectedCategory === "All" ? "gallery" : selectedCategory}
+                      </span>
+                      <div className="flex gap-4">
+                        <Button variant="ghost" size="sm" onClick={() => navigateImage("prev")}>
+                          ← Previous
+                        </Button>
+                        <Button variant="ghost" size="sm" onClick={() => navigateImage("next")}>
+                          Next →
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
