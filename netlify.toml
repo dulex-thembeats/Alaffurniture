@@ -3,13 +3,14 @@
   publish = "dist/public"
 
 [build.environment]
-  NODE_ENV = "production"
+  # Avoid forcing NODE_ENV to production during Netlify build so devDependencies install.
+  # Netlify will use the Node version from package.json `engines` when available.
 
 [dev]
   command = "npm run dev"
   port = 5173
 
-[redirects]
+[[redirects]]
   # Single Page App fallback: serve index.html for all non-file routes
   from = "/*"
   to = "/index.html"
