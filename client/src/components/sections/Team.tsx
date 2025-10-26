@@ -36,7 +36,7 @@ export default function Team() {
         <h2 className="text-3xl font-bold mb-4 text-primary">ALAF Leadership Team</h2>
       </motion.div>
       <div className="team-grid mb-16">
-        <motion.div
+      {/* <motion.div
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function Team() {
           <img src="https://images.unsplash.com/photo-1494790108755-2616b612b566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80" alt="Sarah Johnson" />
           <h4>Sarah Johnson</h4>
           <p>Director of Design</p>
-        </motion.div>
+        </motion.div> */}
         <motion.div
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
@@ -120,7 +120,7 @@ export default function Team() {
         </motion.div>
       </div>
 
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -212,7 +212,7 @@ export default function Team() {
           <h4>Alex Kumar</h4>
           <p>Marketing & IT Manager</p>
         </motion.div>
-      </div>
+      </div> */}
 
       {/* Profile Modal */}
       <Dialog

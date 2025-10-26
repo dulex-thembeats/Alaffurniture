@@ -29,12 +29,12 @@ export default function AboutCEO() {
             <Card className="overflow-hidden">
               <CardContent className="p-6">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  src="https://res.cloudinary.com/lexlab/image/upload/v1761403441/CEO_n2gwfn.jpg"
                   alt="CEO Portrait"
                   className="w-full rounded-lg"
                 />
                 <h3 className="text-2xl font-semibold mt-4 mb-1">
-                  John Smith
+                  Abdulsalam Alaf
                 </h3>
                 <p className="font-semibold text-foreground">CEO/PRESIDENT</p>
                 <p className="text-primary font-bold text-sm uppercase mb-6">
@@ -42,13 +42,13 @@ export default function AboutCEO() {
                 </p>
                 <div className="bg-primary/10 border-l-4 border-primary p-4 rounded-lg">
                   <p className="mb-4">
-                    <strong>BIO:</strong> John Smith is the visionary CEO behind ALAF Furniture,
+                    <strong>BIO:</strong> Abdulsalam Alaf is the visionary CEO behind ALAF Furniture,
                     bringing over 15 years of experience in luxury furniture design and interior
                     architecture to create exceptional living spaces.
                   </p>
                   <p>
                     His passion for craftsmanship and modern design has led ALAF to become
-                    a premier destination for sophisticated furniture solutions. John's 
+                    a premier destination for sophisticated furniture solutions. Abdulsalam's
                     leadership philosophy centers on innovation, quality, and creating
                     timeless pieces that transform spaces.
                   </p>
@@ -68,13 +68,13 @@ export default function AboutCEO() {
             <Card className="h-full bg-primary text-primary-foreground">
               <CardContent className="p-8 space-y-6">
                 <p>
-                  Beyond his professional achievements, John is passionate about
+                  Beyond his professional achievements, Abdulsalam is passionate about
                   sustainable design practices and mentoring the next generation
                   of furniture designers. His dedication to both innovation and
                   environmental responsibility drives ALAF's commitment to excellence.
                 </p>
                 <p>
-                  <strong>John's achievements</strong> include recognition as Designer
+                  <strong>Alaf's achievements</strong> include recognition as Designer
                   of the Year and multiple awards for innovative furniture design
                   from leading industry organizations.
                 </p>
@@ -86,7 +86,7 @@ export default function AboutCEO() {
                 <p>
                   His philosophy centers on the belief that exceptional furniture
                   should tell a story while serving its purpose beautifully.
-                  <strong>John's leadership</strong> continues to drive ALAF toward
+                  <strong>Abdulsalam's leadership</strong> continues to drive ALAF toward
                   new heights of design excellence and customer satisfaction.
                 </p>
                 <img

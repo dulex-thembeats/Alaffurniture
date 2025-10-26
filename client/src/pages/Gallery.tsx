@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -16,163 +16,72 @@ interface GalleryItem {
   featured?: boolean;
   year?: string;
   client?: string;
+  fullImageUrl?: string;
 }
 
 // Modern gallery collection with real furniture images
-const allGalleryItems: GalleryItem[] = [
-  {
-    id: "1",
-    title: "Luxury Velvet Sofa Collection",
-    category: "Living Room",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Premium velvet sofa collection featuring rich textures and contemporary design elements with gold accent legs",
-    featured: true,
-    year: "2024",
-    client: "Private Residence"
-  },
-  {
-    id: "2",
-    title: "Modern Dining Table Set",
-    category: "Dining",
-    image: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Elegant 8-seater dining table with matching chairs, featuring marble top and brass details",
-    year: "2024",
-    client: "Corporate Office"
-  },
-  {
-    id: "3",
-    title: "Executive Office Suite",
-    category: "Office",
-    image: "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Sophisticated executive office furniture including leather chairs and premium desk solutions",
-    featured: true,
-    year: "2024"
-  },
-  {
-    id: "4",
-    title: "Master Bedroom Suite",
-    category: "Bedroom",
-    image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Luxurious king-size bed frame with upholstered headboard and matching nightstands",
-    year: "2024",
-    client: "Luxury Hotel"
-  },
-  {
-    id: "5",
-    title: "Contemporary Coffee Table",
-    category: "Living Room",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Modern glass-top coffee table with geometric metal base in rose gold finish",
-    year: "2024"
-  },
-  {
-    id: "6",
-    title: "Minimalist Kitchen Design",
-    category: "Kitchen",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Clean-lined kitchen cabinetry with premium hardware and integrated appliances",
-    featured: true,
-    year: "2024",
-    client: "Modern Home"
-  },
-  {
-    id: "7",
-    title: "Luxury Wardrobe System",
-    category: "Bedroom",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Custom walk-in wardrobe with mirror panels and LED lighting system",
-    year: "2024"
-  },
-  {
-    id: "8",
-    title: "Outdoor Dining Collection",
-    category: "Outdoor",
-    image: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Weather-resistant outdoor furniture set with teak wood and aluminum construction",
-    year: "2024"
-  },
-  {
-    id: "9",
-    title: "Reception Area Design",
-    category: "Office",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Modern reception furniture with curved seating and integrated lighting",
-    client: "Corporate Headquarters"
-  },
-  {
-    id: "10",
-    title: "Bar Stool Collection",
-    category: "Dining",
-    image: "https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Contemporary bar stools with leather upholstery and brass footrests",
-    year: "2024"
-  },
-  {
-    id: "11",
-    title: "Living Room Ensemble",
-    category: "Living Room",
-    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Complete living room furniture set with coordinated colors and textures",
-    featured: true,
-    year: "2024",
-    client: "Boutique Hotel"
-  },
-  {
-    id: "12",
-    title: "Kids Bedroom Furniture",
-    category: "Bedroom",
-    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Playful yet sophisticated children's furniture with safety-first design",
-    year: "2024"
-  },
-  {
-    id: "13",
-    title: "Conference Room Table",
-    category: "Office",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Large conference table with integrated cable management and premium finishes",
-    client: "Tech Startup"
-  },
-  {
-    id: "14",
-    title: "Bathroom Vanity Design",
-    category: "Bathroom",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Custom bathroom vanity with marble countertop and gold fixtures",
-    year: "2024"
-  },
-  {
-    id: "15",
-    title: "Patio Lounge Set",
-    category: "Outdoor",
-    image: "https://images.unsplash.com/photo-1493946947703-de5a4fb0ab3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    description: "Luxury outdoor lounge furniture with weather-resistant cushions",
-    featured: true,
-    year: "2024"
-  }
-];
+// Read Cloudinary cloud name from Vite env (create VITE_CLOUD_NAME in .env if you want)
+const CLOUD_NAME = (import.meta as any).env?.VITE_CLOUD_NAME || "your-cloud-name";
+const CLOUDINARY_BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
 
-const categories = ["All", ...Array.from(new Set(allGalleryItems.map(item => item.category)))];
-
-const layoutModes = [
-  { id: "grid", label: "Grid", icon: Grid },
-  { id: "masonry", label: "Masonry", icon: Filter }
-];
+// helper: build a thumbnail URL (low weight) and full URL
+const thumb = (publicId: string, opts = "w_600,h_450,c_fill,q_auto,f_auto") =>
+  `${CLOUDINARY_BASE}/${opts}/${publicId}`;
+const full = (publicId: string, opts = "q_auto,f_auto") =>
+  `${CLOUDINARY_BASE}/${opts}/${publicId}`;
 
 export default function GalleryPage() {
+  const [allGalleryItems, setAllGalleryItems] = useState<GalleryItem[]>([]);
+  const [loadingManifest, setLoadingManifest] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [layoutMode, setLayoutMode] = useState("grid");
 
+  const layoutModes = [
+    { id: "grid", label: "Grid", icon: Grid },
+    { id: "masonry", label: "Masonry", icon: Filter },
+  ];
+
+  useEffect(() => {
+    // fetch manifest placed in public/ (so path is '/gallery.json' from app root)
+    fetch("/gallery.json")
+      .then((r) => r.json())
+      .then((data: Array<any>) => {
+        // Map manifest to the GalleryItem shape, applying thumbnail URLs for grid
+        const mapped = data.map((d, idx) => ({
+          id: d.id ?? `${idx + 1}`,
+          title: d.title ?? d.imagePublicId.split("/").pop()?.replace(/\.\w+$/, ""),
+          category: d.category ?? "Gallery",
+          image: thumb(d.imagePublicId),      // used in grid
+          fullImageUrl: full(d.imagePublicId),// we'll use when opening modal
+          description: d.description ?? "",
+          featured: !!d.featured,
+          year: d.year,
+          client: d.client,
+        }));
+        setAllGalleryItems(mapped);
+      })
+      .catch((err) => {
+        console.error("Failed to load gallery manifest", err);
+      })
+      .finally(() => setLoadingManifest(false));
+  }, []);
+
+  // derive categories from loaded items
+  const categories = useMemo(() => {
+    const cats = Array.from(new Set(allGalleryItems.map(i => i.category).filter(Boolean)));
+    return ["All", ...cats];
+  }, [allGalleryItems]);
+
   const filteredItems = useMemo(() => {
-    let items = selectedCategory === "All" 
-      ? allGalleryItems 
+    let items = selectedCategory === "All"
+      ? allGalleryItems
       : allGalleryItems.filter(item => item.category === selectedCategory);
 
     if (searchQuery) {
-      items = items.filter(item => 
+      items = items.filter(item =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.category.toLowerCase().includes(searchQuery.toLowerCase())
@@ -180,7 +89,7 @@ export default function GalleryPage() {
     }
 
     return items;
-  }, [selectedCategory, searchQuery]);
+  }, [allGalleryItems, selectedCategory, searchQuery]);
 
   const openModal = (item: GalleryItem) => {
     setSelectedImage(item);
@@ -188,10 +97,10 @@ export default function GalleryPage() {
   };
 
   const navigateImage = (direction: "prev" | "next") => {
-    const newIndex = direction === "next" 
+    const newIndex = direction === "next"
       ? (currentIndex + 1) % filteredItems.length
       : (currentIndex - 1 + filteredItems.length) % filteredItems.length;
-    
+
     setCurrentIndex(newIndex);
     setSelectedImage(filteredItems[newIndex]);
   };
@@ -208,7 +117,7 @@ export default function GalleryPage() {
         >
           <h1 className="text-6xl font-bold text-primary mb-6">ALAF Gallery</h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Explore our curated collection of luxury furniture and interior design masterpieces. 
+            Explore our curated collection of luxury furniture and interior design masterpieces.
             Each piece represents our commitment to sophistication, quality, and timeless elegance.
           </p>
         </motion.div>
@@ -261,7 +170,7 @@ export default function GalleryPage() {
                 </span>
               )}
             </div>
-            
+
             <div className="flex gap-2">
               {layoutModes.map((mode) => (
                 <Button
@@ -282,11 +191,10 @@ export default function GalleryPage() {
         {/* Gallery Grid */}
         <motion.div
           layout
-          className={`grid gap-6 ${
-            layoutMode === "masonry" 
-              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" 
+          className={`grid gap-6 ${layoutMode === "masonry"
+              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
               : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          }`}
+            }`}
         >
           <AnimatePresence>
             {filteredItems.map((item, index) => (
@@ -300,10 +208,9 @@ export default function GalleryPage() {
                 className="group"
               >
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer border-primary/10 hover:border-primary/30">
-                  <div 
-                    className={`relative overflow-hidden ${
-                      layoutMode === "masonry" ? "aspect-[4/5]" : "aspect-square"
-                    }`}
+                  <div
+                    className={`relative overflow-hidden ${layoutMode === "masonry" ? "aspect-[4/5]" : "aspect-square"
+                      }`}
                     onClick={() => openModal(item)}
                   >
                     <img
@@ -312,7 +219,7 @@ export default function GalleryPage() {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
                     />
-                    
+
                     {item.featured && (
                       <Badge className="absolute top-3 left-3 bg-primary/90 text-primary-foreground">
                         Featured
@@ -328,7 +235,7 @@ export default function GalleryPage() {
                         <Share2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    
+
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4">
                       <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -393,7 +300,7 @@ export default function GalleryPage() {
                 >
                   <ChevronLeft className="h-6 w-6" />
                 </Button>
-                
+
                 <Button
                   variant="ghost"
                   size="icon"
@@ -416,7 +323,7 @@ export default function GalleryPage() {
                 {/* Image */}
                 <div className="aspect-video max-h-[80vh]">
                   <img
-                    src={selectedImage.image}
+                    src={selectedImage.fullImageUrl ?? selectedImage.image}
                     alt={selectedImage.title}
                     className="w-full h-full object-contain"
                   />
@@ -452,11 +359,11 @@ export default function GalleryPage() {
                         </Button>
                       </div>
                     </div>
-                    
+
                     <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                       {selectedImage.description}
                     </p>
-                    
+
                     <div className="flex justify-between items-center text-sm text-muted-foreground border-t pt-6">
                       <span>
                         {currentIndex + 1} of {filteredItems.length} in {selectedCategory === "All" ? "gallery" : selectedCategory}

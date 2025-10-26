@@ -56,14 +56,20 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client
-  const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  // Serve the app on a configurable host/port. Default to localhost for
+  // development environments where binding to 0.0.0.0 may not be supported.
+  const port = Number(process.env.PORT || 5000);
+  const host = process.env.HOST || "127.0.0.1";
+
+  if (process.platform === "win32") {
+    // reusePort is not supported on some Windows environments. Use the
+    // simple listen signature instead to avoid ENOTSUP errors.
+    server.listen(port, host, () => {
+      log(`serving on ${host}:${port}`);
+    });
+  } else {
+    server.listen({ port, host, reusePort: true }, () => {
+      log(`serving on ${host}:${port}`);
+    });
+  }
 })();
