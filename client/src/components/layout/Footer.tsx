@@ -12,10 +12,10 @@ const quickLinks = [
 
 const contactInfo = [
   { icon: Mail, text: "info@alaf.com", href: "mailto:info@alaf.com" },
-  { icon: Phone, text: "+234 123 456 7890", href: "tel:+2341234567890" },
+  { icon: Phone, text: "+234 909 999 3888", href: "tel:+234 806 060 9123" },
   {
     icon: MapPin,
-    text: "Luxury Furniture District, Lagos, Nigeria",
+    text: "No 5 LADAN SHAREHU STREET BY GGSS KAWO KADUNA",
     href: "https://maps.google.com",
   },
 ];

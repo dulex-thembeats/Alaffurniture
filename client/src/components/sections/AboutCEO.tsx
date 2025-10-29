@@ -34,11 +34,11 @@ export default function AboutCEO() {
                   className="w-full rounded-lg"
                 />
                 <h3 className="text-2xl font-semibold mt-4 mb-1">
-                  Abdulsalam Alaf
+                  Abdulsalam Lawal
                 </h3>
                 <p className="font-semibold text-foreground">CEO/PRESIDENT</p>
                 <p className="text-primary font-bold text-sm uppercase mb-6">
-                  ALAF FURNITURE AND INTERIORS
+                  ALAF FURNITURE AND INTERIOR
                 </p>
                 <div className="bg-primary/10 border-l-4 border-primary p-4 rounded-lg">
                   <p className="mb-4">

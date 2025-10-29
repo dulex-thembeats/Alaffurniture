@@ -1,0 +1,2 @@
+# from project root
+node .\client\scripts\generate-gallery-manifest.js .\client\scripts\ids.txt
