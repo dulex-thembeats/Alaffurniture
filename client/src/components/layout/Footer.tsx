@@ -11,7 +11,7 @@ const quickLinks = [
 ];
 
 const contactInfo = [
-  { icon: Mail, text: "info@alaf.com", href: "mailto:info@alaf.com" },
+  { icon: Mail, text: "alafl.jnigltd@gmail.com", href: "mailto:alafl.jnigltd@gmail.com" },
   { icon: Phone, text: "+234 909 999 3888", href: "tel:+234 806 060 9123" },
   {
     icon: MapPin,
