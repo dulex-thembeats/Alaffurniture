@@ -42,7 +42,7 @@ export default function AboutCEO() {
                 </p>
                 <div className="bg-primary/10 border-l-4 border-primary p-4 rounded-lg">
                   <p className="mb-4">
-                    <strong>BIO:</strong> Abdulsalam Lawal is the visionary CEO behind ALAF Furniture,
+                    <strong>BIO:</strong> Abdulsalam Lawal  is the visionary CEO behind ALAF Furniture,
                     bringing over 15 years of experience in luxury furniture design and interior
                     architecture to create exceptional living spaces.
                   </p>

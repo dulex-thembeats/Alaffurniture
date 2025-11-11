@@ -26,7 +26,7 @@ export default function Team() {
 
   return (
     <section id="team" className="team-section">
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -34,7 +34,7 @@ export default function Team() {
         className="text-center mb-12"
       >
         <h2 className="text-3xl font-bold mb-4 text-primary">ALAF Leadership Team</h2>
-      </motion.div>
+      </motion.div> */}
       <div className="team-grid mb-16">
       {/* <motion.div
           className="team-member"
@@ -55,7 +55,7 @@ export default function Team() {
           <h4>Sarah Johnson</h4>
           <p>Director of Design</p>
         </motion.div> */}
-        <motion.div
+        {/* <motion.div
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,8 +73,8 @@ export default function Team() {
           <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80" alt="Michael Chen" />
           <h4>Michael Chen</h4>
           <p>Operations Director</p>
-        </motion.div>
-        <motion.div
+        </motion.div> */}
+        {/* <motion.div
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,8 +95,8 @@ export default function Team() {
           />
           <h4>David Wilson</h4>
           <p>Creative Director</p>
-        </motion.div>
-        <motion.div
+        </motion.div> */}
+        {/* <motion.div
           className="team-member"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function Team() {
           />
           <h4>Emma Rodriguez</h4>
           <p>Strategic Director</p>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* <motion.div
